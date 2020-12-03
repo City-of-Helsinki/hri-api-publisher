@@ -1,9 +1,10 @@
+import os
 import math
 import grequests
 import requests
 
-ASYNC_CHUNK_SIZE = 50
-PAGE_RESULT_COUNT = 20
+ASYNC_CHUNK_SIZE = int(os.environ['ASYNC_CHUNK_SIZE'])
+PAGE_RESULT_COUNT = int(os.environ['PAGE_RESULT_COUNT'])
 
 def collect_data_async(collected_results, next_page_url, page_count):
     # Create list of pagination urls

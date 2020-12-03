@@ -4,21 +4,19 @@
 import gevent.monkey
 gevent.monkey.patch_all()
 
+import os
+import json
 import requests
 import sqlite_utils
 from flatten import flatten_jsons
 from api_requests import collect_data_from_api
 
 # Global constants
-URL = 'https://api.hel.fi/servicemap/v2/'
-db = sqlite_utils.Database("db/servicemap.db", recreate=True)
+URL = os.environ['ROOT_URL']
+db = sqlite_utils.Database(f"db/{os.environ['DB']}", recreate=True)
 
 # Deprecated endpoints or these might not contain relevant data
-restricted_keys = {
-    'accessibility_rule',
-    'error_message',
-    'search',
-}
+restricted_keys = os.environ['RESTRICTED_ENDPOINTS']
 
 def main():
     root_data = requests.get(URL).json()
