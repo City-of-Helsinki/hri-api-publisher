@@ -16,7 +16,7 @@ URL = os.environ['ROOT_URL']
 db = sqlite_utils.Database(f"db/{os.environ['DB']}", recreate=True)
 
 # Deprecated endpoints or these might not contain relevant data
-restricted_keys = os.environ['RESTRICTED_ENDPOINTS']
+restricted_keys = os.environ['RESTRICTED_ENDPOINTS'].split(',')
 
 def main():
     root_data = requests.get(URL).json()
