@@ -1,25 +1,14 @@
 # HRI API Publisher
 
-## Running locally without docker
+## Overview
 
-### Prerequisites
-
-* Python 3.9
-
-### Install dependencies
-
-    $ pip install -r requirements.txt
-
-### Create database with data from api
-
-    $ python src/main.py
-
-### Run datasette
-
-    $ datasette -p 8001 -h 0.0.0.0 db/servicemap.db
-
+This program is intended to offer an alternative way of using the data from the open APIs of the City of Helsinki. This is done by creating and offering user-friendly CSV -files available for download. These CSVs contain the same data as the API, but in a restructured format that allows usage with Excel for example.
 
 ## Running with docker
+
+### Build image
+
+    $ docker-compose build
 
 ### Create database
 
